@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silver Eagle | Convert YouTube Videos to Shorts in Seconds</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --silver: #C0C0C0;
+            --dark-blue: #0F1A2C;
+            --blue-accent: #1E3A8A;
+            --light-blue: #3B82F6;
+            --white: #FFFFFF;
+            --dark-gray: #1E293B;
+            --gray: #475569;
+            --light-gray: #E2E8F0;
+            --success: #10B981;
+            --danger: #EF4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-blue);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(15, 26, 44, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(192, 192, 192, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--silver), var(--light-blue));
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon:after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 12px;
+            width: 16px;
+            height: 10px;
+            background-color: var(--dark-blue);
+            border-radius: 50% 50% 0 0;
+        }
+
+        .logo-icon:before {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 10px;
+            width: 20px;
+            height: 12px;
+            background-color: var(--dark-blue);
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--silver), var(--light-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo-tagline {
+            font-size: 0.7rem;
+            color: var(--silver);
+            letter-spacing: 1px;
+            margin-top: -5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav a:hover {
+            color: var(--silver);
+        }
+
+        .cta-button {
+            background: linear-gradient(to right, var(--light-blue), var(--silver));
+            color: var(--dark-blue);
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: radial-gradient(circle at 20% 50%, rgba(30, 58, 138, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(192, 192, 192, 0.2) 0%, transparent 40%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(to right, var(--silver), var(--light-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* Conversion Interface */
+        .conversion-section {
+            padding: 80px 0;
+            background-color: rgba(30, 41, 59, 0.3);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+        }
+
+        .section-title span {
+            color: var(--silver);
+        }
+
+        .conversion-container {
+            background-color: var(--dark-gray);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(192, 192, 192, 0.1);
+        }
+
+        .url-input-section {
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .url-input {
+            flex: 1;
+            padding: 16px 20px;
+            background-color: rgba(15, 26, 44, 0.8);
+            border: 1px solid var(--gray);
+            border-radius: 8px;
+            color: var(--white);
+            font-size: 1rem;
+        }
+
+        .url-input:focus {
+            outline: none;
+            border-color: var(--light-blue);
+        }
+
+        .paste-btn {
+            background-color: var(--blue-accent);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .paste-btn:hover {
+            background-color: var(--light-blue);
+        }
+
+        .preview-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 992px) {
+            .preview-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .video-panel {
+            background-color: rgba(15, 26, 44, 0.8);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .panel-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: var(--silver);
+        }
+
+        .video-placeholder {
+            height: 300px;
+            background-color: rgba(30, 41, 59, 0.8);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            border: 2px dashed var(--gray);
+        }
+
+        .timeline-editor {
+            margin-top: 20px;
+        }
+
+        .timeline-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .time-display {
+            font-family: monospace;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .timeline-slider {
+            width: 100%;
+            height: 8px;
+            -webkit-appearance: none;
+            background: linear-gradient(to right, var(--light-blue), var(--silver));
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .timeline-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background-color: var(--white);
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid var(--light-blue);
+        }
+
+        .caption-customization {
+            background-color: var(--dark-gray);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(192, 192, 192, 0.1);
+        }
+
+        .customization-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .customization-option {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .customization-option label {
+            font-weight: 500;
+            color: var(--silver);
+        }
+
+        .customization-option select, 
+        .customization-option input {
+            padding: 10px;
+            background-color: rgba(15, 26, 44, 0.8);
+            border: 1px solid var(--gray);
+            border-radius: 6px;
+            color: var(--white);
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--gray);
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--light-blue);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background-color: var(--dark-gray);
+            border-radius: 12px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(192, 192, 192, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--silver), var(--light-blue));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .feature-card p {
+            color: var(--light-gray);
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 80px 0;
+            background-color: rgba(30, 41, 59, 0.3);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .pricing-card {
+            background-color: var(--dark-gray);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(192, 192, 192, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--light-blue);
+            transform: scale(1.05);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(to right, var(--light-blue), var(--silver));
+            color: var(--dark-blue);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 20px 0;
+            color: var(--silver);
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 25px 0 30px;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 8px 0;
+            color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features li i {
+            color: var(--success);
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(15, 26, 44, 0.95);
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(192, 192, 192, 0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 20px;
+            color: var(--silver);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--silver);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                order: 3;
+                margin-top: 20px;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .input-group {
+                flex-direction: column;
+            }
+
+            .paste-btn {
+                padding: 16px;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <div>
+                    <div class="logo-text">Silver Eagle</div>
+                    <div class="logo-tagline">Soar with Shorts. Convert. Caption. Publish.</div>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
+                    <li><a href="#how-it-works"><i class="fas fa-play-circle"></i> How It Works</a></li>
+                    <li><a href="#pricing"><i class="fas fa-tag"></i> Pricing</a></li>
+                    <li><a href="#tools"><i class="fas fa-wrench"></i> Tools</a></li>
+                    <li><a href="#" class="cta-button">Start Converting</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Convert YouTube Videos to <span>Shorts in Seconds</span></h1>
+            <p>Silver Eagle transforms your horizontal YouTube content into engaging vertical Shorts with AI-powered cropping, automatic captions, and professional customization tools.</p>
+            <a href="#converter" class="cta-button" style="padding: 15px 30px; font-size: 1.1rem;">
+                <i class="fas fa-bolt"></i> Try Free Converter
+            </a>
+        </div>
+    </section>
+
+    <!-- Conversion Interface -->
+    <section class="conversion-section" id="converter">
+        <div class="container">
+            <h2 class="section-title">Convert <span>Any YouTube Video</span> to Shorts Format</h2>
+            
+            <div class="conversion-container">
+                <div class="url-input-section">
+                    <h3>Paste YouTube URL</h3>
+                    <div class="input-group">
+                        <input type="text" class="url-input" placeholder="https://www.youtube.com/watch?v=..." id="youtubeUrl">
+                        <button class="paste-btn" id="pasteBtn">
+                            <i class="fas fa-paste"></i> Paste & Load
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="preview-section">
+                    <div class="video-panel">
+                        <div class="panel-title">
+                            <i class="fas fa-film"></i>
+                            <span>Original Video</span>
+                        </div>
+                        <div class="video-placeholder">
+                            <div style="text-align: center;">
+                                <i class="fas fa-video" style="font-size: 3rem; margin-bottom: 15px; color: var(--gray);"></i>
+                                <p>Video will appear here after pasting URL</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="video-panel">
+                        <div class="panel-title">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Shorts Preview</span>
+                        </div>
+                        <div class="video-placeholder" style="height: 500px; background-color: rgba(30, 41, 59, 0.9);">
+                            <div style="text-align: center;">
+                                <div style="width: 200px; height: 350px; background: linear-gradient(135deg, #1E3A8A, #3B82F6); margin: 0 auto 20px; border-radius: 12px; position: relative; overflow: hidden;">
+                                    <div style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 80%; height: 150px; background-color: rgba(0,0,0,0.3); border-radius: 8px;"></div>
+                                    <div style="position: absolute; bottom: 80px; left: 10%; width: 80%; background-color: rgba(0,0,0,0.7); color: white; padding: 10px; border-radius: 4px; text-align: center;">
+                                        AI-Generated Captions
+                                    </div>
+                                </div>
+                                <p>Vertical Shorts preview</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-editor">
+                    <h3>Select Segment (0-60 seconds)</h3>
+                    <div class="timeline-controls">
+                        <span>Start: <span class="time-display" id="startTime">0:00</span></span>
+                        <span>Duration: <span class="time-display" id="duration">0:60</span></span>
+                        <span>End: <span class="time-display" id="endTime">1:00</span></span>
+                    </div>
+                    <input type="range" min="0" max="100" value="0" class="timeline-slider" id="timelineSlider">
+                </div>
+            </div>
+            
+            <div class="caption-customization">
+                <h3>Caption Customization</h3>
+                <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span>Auto-generate captions</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="customization-option" style="flex: 1;">
+                        <label for="language">Language</label>
+                        <select id="language">
+                            <option value="en">English</option>
+                            <option value="es">Spanish</option>
+                            <option value="fr">French</option>
+                            <option value="de">German</option>
+                            <option value="pt">Portuguese</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="customization-grid">
+                    <div class="customization-option">
+                        <label for="fontStyle">Font Style</label>
+                        <select id="fontStyle">
+                            <option value="montserrat">Montserrat (Bold)</option>
+                            <option value="inter">Inter (Clean)</option>
+                            <option value="impact">Impact (Heavy)</option>
+                            <option value="roboto">Roboto (Modern)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="customization-option">
+                        <label for="fontSize">Font Size</label>
+                        <input type="range" min="12" max="60" value="32" id="fontSize">
+                    </div>
+                    
+                    <div class="customization-option">
+                        <label for="fontColor">Font Color</label>
+                        <input type="color" id="fontColor" value="#ffffff">
+                    </div>
+                    
+                    <div class="customization-option">
+                        <label for="captionPosition">Caption Position</label>
+                        <select id="captionPosition">
+                            <option value="bottom">Bottom Center</option>
+                            <option value="top">Top Center</option>
+                            <option value="middle">Middle Center</option>
+                            <option value="dynamic">Dynamic (AI-Positioned)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 15px; margin-top: 30px;">
+                    <button class="cta-button" style="flex: 1;">
+                        <i class="fas fa-download"></i> Download Short
+                    </button>
+                    <button class="cta-button" style="flex: 1; background: linear-gradient(to right, #10B981, #3B82F6);">
+                        <i class="fab fa-youtube"></i> Publish to YouTube
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <h2 class="section-title">Powerful <span>AI-Powered Features</span></h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-crop-alt"></i>
+                    </div>
+                    <h3>Smart Cropping</h3>
+                    <p>AI automatically detects and follows the main subject during horizontal-to-vertical conversion for perfect framing every time.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-closed-captioning"></i>
+                    </div>
+                    <h3>Auto-Captions</h3>
+                    <p>Generate accurate captions automatically with speech-to-text technology. Supports multiple languages and translation.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Fast Processing</h3>
+                    <p>Convert videos in seconds with our optimized processing pipeline. No waiting for lengthy uploads or conversions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Customization</h3>
+                    <p>Full control over captions, styles, backgrounds, and aspect ratios. Create Shorts that match your brand identity.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Batch Processing</h3>
+                    <p>Convert multiple videos at once. Perfect for repurposing entire playlists or video series into Shorts format.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Analytics</h3>
+                    <p>Track engagement metrics for your Shorts. See what works best and optimize your content strategy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Simple, <span>Transparent Pricing</span></h2>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Free</h3>
+                    <div class="price">$0<span>/month</span></div>
+                    <p>Perfect for getting started with Shorts creation</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 10 conversions per month</li>
+                        <li><i class="fas fa-check"></i> Basic cropping tools</li>
+                        <li><i class="fas fa-check"></i> Auto-captions (English only)</li>
+                        <li><i class="fas fa-check"></i> Watermarked exports</li>
+                        <li><i class="fas fa-times"></i> Priority processing</li>
+                        <li><i class="fas fa-times"></i> Advanced AI features</li>
+                    </ul>
+                    <button class="cta-button" style="width: 100%;">Get Started Free</button>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">MOST POPULAR</div>
+                    <h3>Pro</h3>
+                    <div class="price">$19<span>/month</span></div>
+                    <p>For serious creators and businesses</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Unlimited conversions</li>
+                        <li><i class="fas fa-check"></i> Advanced AI cropping</li>
+                        <li><i class="fas fa-check"></i> Multi-language captions</li>
+                        <li><i class="fas fa-check"></i> Watermark-free exports</li>
+                        <li><i class="fas fa-check"></i> Priority processing</li>
+                        <li><i class="fas fa-check"></i> Batch processing (up to 10)</li>
+                    </ul>
+                    <button class="cta-button" style="width: 100%; background: linear-gradient(to right, var(--light-blue), var(--silver));">Start Pro Trial</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Team</h3>
+                    <div class="price">$49<span>/month</span></div>
+                    <p>For agencies and content teams</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Pro</li>
+                        <li><i class="fas fa-check"></i> 5 team members</li>
+                        <li><i class="fas fa-check"></i> Collaboration tools</li>
+                        <li><i class="fas fa-check"></i> Custom branding</li>
+                        <li><i class="fas fa-check"></i> API access</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                    </ul>
+                    <button class="cta-button" style="width: 100%;">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo">
+                        <div class="logo-icon" style="width: 30px; height: 30px;"></div>
+                        <div class="logo-text" style="font-size: 1.5rem;">Silver Eagle</div>
+                    </div>
+                    <p style="margin-top: 15px; color: var(--light-gray);">The professional's tool for YouTube Shorts creation. Convert, caption, and publish in seconds.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">API Documentation</a></li>
+                        <li><a href="#">Release Notes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Templates</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Help Center</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Silver Eagle. All rights reserved. | YouTube is a trademark of Google LLC.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+
+        // Paste button functionality
+        document.getElementById('pasteBtn').addEventListener('click', async function() {
+            const urlInput = document.getElementById('youtubeUrl');
+            
+            try {
+                const text = await navigator.clipboard.readText();
+                urlInput.value = text;
+                
+                // Show loading state
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+                this.disabled = true;
+                
+                // Simulate loading video
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-check"></i> Video Loaded!';
+                    this.style.backgroundColor = '#10B981';
+                    
+                    // Reset after 2 seconds
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fas fa-paste"></i> Paste & Load';
+                        this.style.backgroundColor = '';
+                        this.disabled = false;
+                    }, 2000);
+                }, 1500);
+            } catch (err) {
+                // Fallback for browsers that don't support clipboard API
+                urlInput.focus();
+                document.execCommand('paste');
+            }
+        });
+
+        // Timeline slider functionality
+        const timelineSlider = document.getElementById('timelineSlider');
+        const startTime = document.getElementById('startTime');
+        const endTime = document.getElementById('endTime');
+        const duration = document.getElementById('duration');
+        
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+        
+        timelineSlider.addEventListener('input', function() {
+            const value = parseInt(this.value);
+            const startSeconds = value;
+            const endSeconds = Math.min(60, startSeconds + 60);
+            
+            startTime.textContent = formatTime(startSeconds);
+            endTime.textContent = formatTime(endSeconds);
+            duration.textContent = formatTime(endSeconds - startSeconds);
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById('mainNav');
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            
+            if (!nav.contains(event.target) && !menuBtn.contains(event.target) && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    document.getElementById('mainNav').classList.remove('active');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Demo URL validation
+        document.getElementById('youtubeUrl').addEventListener('input', function() {
+            const pasteBtn = document.getElementById('pasteBtn');
+            if (this.value.includes('youtube.com') || this.value.includes('youtu.be')) {
+                pasteBtn.innerHTML = '<i class="fas fa-cloud-download-alt"></i> Load Video';
+            } else {
+                pasteBtn.innerHTML = '<i class="fas fa-paste"></i> Paste & Load';
+            }
+        });
+    </script>
+</body>
+</html>
